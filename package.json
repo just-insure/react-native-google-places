@@ -1,7 +1,7 @@
 {
-  "name": "react-native-google-places",
+  "name": "@just-insure/react-native-google-places",
+  "description": "iOS/Android Google Places Widgets (Autocomplete Modals) and API Services for React Native Apps",
   "version": "0.1.0",
-  "description": "Very good package with infomration about addresses",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
   "types": "lib/typescript/src/index.d.ts",
@@ -27,12 +27,10 @@
   ],
   "scripts": {
     "example": "yarn workspace react-native-google-places-example",
-    "test": "jest",
     "typecheck": "tsc --noEmit",
     "lint": "eslint \"**/*.{js,ts,tsx}\"",
     "clean": "del-cli android/build example/android/build example/android/app/build example/ios/build lib",
-    "prepare": "bob build",
-    "release": "release-it"
+    "prepare": "bob build"
   },
   "keywords": [
     "react-native",
@@ -53,8 +51,6 @@
     "registry": "https://registry.npmjs.org/"
   },
   "devDependencies": {
-    "@commitlint/config-conventional": "^17.0.2",
-    "@evilmartians/lefthook": "^1.5.0",
     "@react-native/eslint-config": "^0.72.2",
     "@release-it/conventional-changelog": "^5.0.0",
     "@types/jest": "^28.1.2",

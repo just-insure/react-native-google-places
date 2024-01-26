@@ -1,18 +1,34 @@
 import * as React from 'react';
-
 import { StyleSheet, View, Text } from 'react-native';
-import { multiply } from 'react-native-google-places';
+import RNGooglePlaces from '@just-insure/react-native-google-places';
+
+import { ARIZONA_BOUNDS } from './constants';
 
 export default function App() {
-  const [result, setResult] = React.useState<number | undefined>();
+  const getPlaces = async () => {
+    try {
+      await RNGooglePlaces.beginAutocompleteSession();
+      const response = await RNGooglePlaces.getAutocompletePredictions(
+        'Cactus road',
+        {
+          country: 'US',
+          type: 'address',
+          locationRestriction: ARIZONA_BOUNDS,
+        }
+      );
+      console.log(response, 'xxxx');
+    } catch (e) {
+      console.log(e, 'eeee');
+    }
+  };
 
   React.useEffect(() => {
-    multiply(3, 7).then(setResult);
+    getPlaces();
   }, []);
 
   return (
     <View style={styles.container}>
-      <Text>Result: {result}</Text>
+      <Text>Search for gugu place</Text>
     </View>
   );
 }
